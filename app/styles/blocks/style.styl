@@ -1,0 +1,290 @@
+/* вложенные селекторы */
+/* переменные */
+
+
+/*1. Сommon styles*/
+/*2. Header*/
+/*3. Main*/
+/*4. Slider*/
+
+/* ==================================================
+[ 1. Сommon styles ]
+   ================================================== */
+
+body 
+    font-family "PT Sans", sans-serif
+    color #3f241e
+    font-size 22px
+    line-height 50px
+    font-weight bold
+    background #797979
+
+.wrapper 
+    width 1000px
+    background url("../images/pattern.jpg")
+    margin:0 auto
+
+.clearfix:after 
+    content ''
+    display table
+    clear both   
+
+main,
+footer 
+    padding 0 110px
+    padding-right 120px
+
+
+/* ==================================================
+[ 2. Header ]
+   ================================================== */
+.header 
+    width 100%
+
+    &__img-left 
+        float left
+        margin 63px 0 0 45px    
+
+    &__img-right 
+        float right
+        margin 48px 54px 0 0    
+    
+
+/* ==================================================
+[ 2. Main ]
+   ================================================== */
+
+.main-title 
+    display block
+    text-align center
+    margin 12px auto 55px auto
+    padding-right 35px
+    
+
+    
+.description 
+    width 100%
+    overflow hidden
+    min-height 62px
+
+    &--short-date 
+        padding-bottom 60px
+        padding-top 5px
+    
+    &__question 
+        display block
+        float left
+        position relative
+        padding-right 17px
+        line-height 60px
+    
+        &:after 
+            position absolute
+            content ''
+            width 1010px
+            height 10px
+            bottom 14px
+            right -1010px
+            background url(../images/underline.png) no-repeat
+
+        &--short-date:after
+            padding-right 12px
+            padding-left 5px
+            width 195px
+            right -205px
+            top 30px
+        
+    &__answer 
+        display block
+        background none
+        border none
+        width 70%
+        font-size 30px
+        line-height 30px
+        font-weight 100
+        padding-left 13px
+        font-family "Courier New", sans-serif
+
+.main-skills 
+    display inline-block
+    width 33%
+    font-size 0
+    padding 0
+    vertical-align top
+    margin-top 10px
+    
+    &-note 
+        position relative
+        font-size 14px
+        line-height 22px
+        font-weight normal
+        padding-left 17px
+    
+    &-note:before 
+        position absolute
+        content ''
+        width 11px
+        height 9px
+        left 0
+        top 6px
+        background-image url(../images/snowflake.png)
+    
+    
+    &-title 
+        line-height 47px
+      
+    &--with-left-padding 
+        padding-left 20px
+        width 31%   
+       
+    &__item 
+        list-style none
+        line-height 25px
+        padding-left 25px
+        font-size 21px
+        margin-top 10px
+        margin-bottom 10px
+     
+    &__item input[type=checkbox] + label 
+        position relative
+
+.radiobox
+    margin-bottom 20px
+    
+    &__text,
+    &__radio 
+        display inline-block
+        margin-top 17px
+    
+    &__radio
+        padding-left 15px
+    
+    &__text a 
+        color #014f98
+    
+input[type=checkbox]
+input[type=radio] 
+    display none
+
+input[type=radio] + label::before 
+    display inline-block
+    width 24px
+    height 28px
+    margin -1px 4px 0 0
+    vertical-align -5px
+    background url(../images/radio.png) 104% 100% no-repeat
+    cursor pointer
+    content "" 
+    padding-left 20px
+
+input[type=radio]:checked + label::before  
+    background:url(../images/radio.png) -22% 100% no-repeat
+
+input[type=checkbox] + label::before 
+    position absolute
+    display inline-block
+    width 24px
+    height 28px
+    left -26px
+    top -4px
+    margin -1px 4px 0 0
+    vertical-align -2px
+    background url(../images/not-checked.png) 0% 0% no-repeat
+    cursor pointer
+    content "" 
+
+input[type=checkbox]:checked + label::before  
+    background url(../images/checked.png) 0% 10% no-repeat
+
+    
+/* ==================================================
+[ 5. Slider ]
+   ================================================== */
+.slider 
+    width 770px
+    min-height 140px
+    padding-left 5px
+    padding-top 2px
+    font-size 0
+
+    &__item 
+        padding 0
+        display inline-block
+        width 30%
+        vertical-align top
+        text-align left
+        font-size 13px
+        font-weight bold
+        padding-top 55px
+        padding-right 6%
+        line-height 19px
+    
+    & li:nth-child(1),
+    & li:nth-child(4) 
+        width 19.5%
+        padding-left 0.5%
+        padding-right 0
+        
+    & li:nth-child(3) 
+        width 31%
+        padding-right 8%
+    
+    & li:nth-child(4) 
+        width 19%
+        text-align right
+        margin-top 5px
+    
+    &-title 
+        padding-top 58px
+        padding-left 10px
+    
+/* Контейнер слайдера */
+.ui-slider 
+    position relative
+
+    /* Ползунок */
+    
+    &-handle 
+        position absolute
+        z-index 2
+        width 17px
+        height 13px
+        background url(../images/slider-polz.png) no-repeat 
+        cursor pointer
+        top: 12px;
+
+    &-range 
+        position absolute
+        z-index 1
+        font-size .7em
+        display block
+        border 0
+        overflow hidden
+    
+/* горизонтальный слайдер (сама полоса по которой бегает ползунок) */
+.ui-slider-horizontal 
+	 height 3px /* задаем высоту согласно дизайна */
+
+    /* позиционируем ползунки */
+    & .ui-slider-handle  
+        top 12px
+        right 70px	
+    
+    & .ui-slider-range 
+        top 0
+        height 100%    
+
+    & .ui-slider-range-min  
+        left 0
+    
+    & .ui-slider-range-max 
+        right 0
+
+/* оформление полосы по которой ходит ползунок */
+.ui-widget-content  
+	background url(../images/slider-line.png) no-repeat -50% 0
+
+
+
+
+
